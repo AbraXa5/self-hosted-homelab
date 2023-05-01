@@ -1,28 +1,28 @@
 # Self-hosted HomeLab
 
--   Calibre-web
--   Cloudflare tunnel
--   Container Monitoring
+-   [Calibre-web](./calibre-web/)
+-   [Cloudflare tunnel](./cloudflare-tunnel/)
+-   [Container Monitoring](./container-monitoring/)
     -   Prometheus
     -   Grafana
     -   cAdvisor
     -   node-exporter
--   Filebrowser
--   Homer
--   Jellyfin
--   Nextcloud
--   Ngnix Proxy Manager
--   Paperless-ngx
--   PhotoPrism
--   Pihole
--   Portainer
--   Samba Share
--   Syncthing
--   Tailscale VPN
--   Uptime Kuma
--   Minimal Vscode
--   Watchtower
--   Wireguard
+-   [Filebrowser](./filebrowser/)
+-   [Homer](./homer/)
+-   [Jellyfin](./jellyfin/)
+-   [Nextcloud](./nextcloud/)
+-   [Ngnix Proxy Manager](./ngnix-proxy-manager/)
+-   [Paperless-ngx](./paperless-ngx/)
+-   [PhotoPrism](./PhotoPrism/)
+-   [Pihole](./pihole/)
+-   [Portainer](./portainer/)
+-   [Samba Share](./samba/)
+-   [Syncthing](./syncthing/)
+-   [Tailscale VPN](./tailscale/)
+-   [Uptime Kuma](./uptime-kuma/)
+-   [Minimal Vscode](./vscode/)
+-   [Watchtower](./)
+-   [Wireguard](./wireguard/)
 
 ## Setup
 
