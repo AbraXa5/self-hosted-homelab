@@ -48,3 +48,15 @@ docker-compose up -d --force-recreate --remove-orphans
 ```
 
 Some conatiners need a `.env` file, there's a `.env.example` file to refer to for that. Same goes for `config.yml` if required
+
+## Contributing
+
+```bash
+pipx install pre-commit
+pre-commit install
+```
+
+```bash
+pre-commit autoupdate
+pre-commit run --all-files --verbose
+```
