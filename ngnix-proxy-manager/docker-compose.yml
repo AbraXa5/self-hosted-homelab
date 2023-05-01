@@ -1,0 +1,15 @@
+---
+version: '3'
+services:
+  app:
+    image: 'jc21/nginx-proxy-manager:latest'
+    container_name: nginx_proxy_manager
+    ports:
+      - '80:80' # HTTP port
+      - '81:81' # Admin Port
+      - '443:443' # HTTPS Port
+    volumes:
+      - /opt/ngnix-proxy-manager/config.json:/app/config/production.json
+      - /opt/ngnix-proxy-manager/data:/data
+      - /opt/ngnix-proxy-manager/letsencrypt:/etc/letsencrypt
+    restart: unless-stopped
