@@ -1,0 +1,16 @@
+---
+version: "3"
+services:
+  cloudflared:
+    image: cloudflare/cloudflared
+    container_name: cloudflare-tunnel-niflheim-bifrost
+    restart: unless-stopped
+    command: tunnel run
+    network_mode: "host"
+    env_file:
+      - .env
+      # - TUNNEL_TOKEN=TOKEN_FROM_DASHBOARD
+    volumes:
+      - /opt/cloudflare-tunnel/cloudflared:/etc/cloudflared
+
+      # docker run cloudflare/cloudflared:latest tunnel --no-autoupdate run --token
