@@ -1,0 +1,184 @@
+---
+# Homepage configuration
+# See https://fontawesome.com/v5/search for icons options
+
+title: "Abraxas' Dashboard"
+subtitle: "Niflheim"
+# logo: "assets/icons/logo.svg"
+logo: "assets/icons/icon-512x512.png"
+icon: "assets/icons/icon-512x512.png"
+
+header: true
+footer: false
+
+# Optional theme customization
+# theme: default
+colors:
+  light:
+    highlight-primary: "#3367d6"
+    highlight-secondary: "#4285f4"
+    highlight-hover: "#5a95f5"
+    background: "#f5f5f5"
+    card-background: "#ffffff"
+    text: "#363636"
+    text-header: "#ffffff"
+    text-title: "#303030"
+    text-subtitle: "#424242"
+    card-shadow: rgba(0, 0, 0, 0.1)
+    link: "#3273dc"
+    link-hover: "#363636"
+  dark:
+    highlight-primary: "#3367d6"
+    highlight-secondary: "#4285f4"
+    highlight-hover: "#5a95f5"
+    background: "#131313"
+    card-background: "#2b2b2b"
+    text: "#eaeaea"
+    text-header: "#ffffff"
+    text-title: "#fafafa"
+    text-subtitle: "#f5f5f5"
+    card-shadow: rgba(0, 0, 0, 0.4)
+    link: "#3273dc"
+    link-hover: "#ffdd57"
+
+# Optional message
+# message:
+#   #url: https://b4bz.io
+#   style: "is-dark" # See https://bulma.io/documentation/components/message/#colors for styling options.
+#   title: "Demo !"
+#   icon: "fa fa-grin"
+#   content: "This is a dummy homepage demo. <br /> Find more information on <a href='https://github.com/bastienwirtz/homer'>github.com/bastienwirtz/homer</a>"
+
+# Optional navbar
+# links: [] # Allows for navbar (dark mode, layout, and search) without any links
+links:
+  - name: "Github"
+    icon: "fab fa-github"
+    url: "https://github.com/AbraXa5"
+    target: "_blank"
+  - name: "Dotfiles"
+    icon: "fas fa-book"
+    url: "https://github.com/AbraXa5/dotfiles"
+  - name: "HTB Notes"
+    icon: "fas fa-book"
+    url: "https://github.com/AbraXa5/HTB"
+
+# Services
+# First level array represent a group.
+# Leave only a "items" key if not using group (group name, icon & tagstyle are optional, section separation will not be displayed).
+services:
+  - name: "Server"
+    icon: "assets/tools/sample.png"
+    items:
+      - name: "Portainer"
+        logo: "assets/tools/portainer.png"
+        subtitle: "Container Management"
+        tag: "tools"
+        url: "https://192.168.1.6:9443/"
+        target: "_blank"
+
+      - name: "VS Code"
+        logo: "assets/tools/vscode.png"
+        subtitle: "Self Hosted Minimal Vscode"
+        tag: "tools"
+        url: "http://192.168.1.6:1337/"
+        target: "_blank"
+
+  - name: "Monitoring"
+    icon: "assets/tools/sample.png"
+    items:
+      - name: "RasPi Monitoring Kisok"
+        logo: "assets/tools/prometheus.svg"
+        subtitle: "Raspi and container monitoring"
+        tag: "status"
+        url: "http://192.168.1.6:3000/d/DYHdTozVz/raspberry-pi-monitoring?orgId=1&refresh=5m&kiosk"
+        target: "_blank"
+
+      - name: "Uptime Kuma"
+        logo: "assets/tools/uptime-kuma.png"
+        subtitle: "Monitoring"
+        tag: "status"
+        url: "http://192.168.1.6:3001"
+        target: "_blank"
+
+  - name: "Networking"
+    icon: "assets/tools/sample.png"
+    items:
+      - name: "PiHole"
+        logo: "assets/tools/pi-hole.png"
+        subtitle: "DNS & Ad Blocker"
+        tag: "networking"
+        url: "http://192.168.1.6:9000/admin"
+        target: "_blank"
+
+      - name: "Nginx Proxy manager"
+        logo: "assets/tools/nginx-proxy-manager.png"
+        subtitle: "Reverse Proxy"
+        tag: "status"
+        url: "http://192.168.1.6:81"
+        target: "_blank"
+
+      - name: "Traefik"
+        logo: "assets/tools/traefik.png"
+        subtitle: "Reverse Proxy"
+        tag: "status"
+        url: "http://192.168.1.6:81"
+        target: "_blank"
+
+      - name: "Grafana"
+        logo: "assets/tools/grafana.png"
+        subtitle: "Graphing"
+        tag: "status"
+        url: "http://192.168.1.6:3000"
+        target: "_blank"
+
+  - name: "Media"
+    icon: "assets/tools/sample.png"
+    items:
+      - name: "Jellyfin"
+        logo: "assets/tools/jellyfin.png"
+        subtitle: "Media server"
+        tag: "media"
+        url: "http://192.168.1.6:8096/"
+        target: "_blank"
+      - name: "PhotoPrism"
+        logo: "assets/tools/photo-prism.png"
+        subtitle: "Photo Gallery"
+        tag: "media"
+        url: "https://demo.photoprism.app/library/browse"
+        target: "_blank"
+
+  - name: "Cloud"
+    icon: "assets/tools/sample.png"
+    items:
+      - name: "Nextcloud"
+        logo: "assets/tools/nextcloud.png"
+        subtitle: "Cloud Storage"
+        tag: "cloud"
+        url: "http://192.168.1.6:90443/"
+        target: "_blank"
+      - name: "Filebrowser"
+        logo: "assets/tools/filebrowser.png"
+        subtitle: "Web based file browser"
+        tag: "files"
+        url: "http://192.168.1.6:9080/"
+        target: "_blank"
+      - name: "Syncthing"
+        logo: "assets/tools/syncthing.png"
+        subtitle: "Sync Solution"
+        tag: "sync"
+        url: "https://192.168.1.6:8384/"
+        target: "_blank"
+
+  - name: "Tools"
+    icon: "assets/tools/sample.png"
+    items:
+      - name: "Portainer API"
+        logo: "assets/tools/portainer-api.svg"
+        subtitle: "Container Management API"
+        tag: "tools"
+        url: "http://192.168.1.6:5000/"
+        target: "_blank"
+
+stylesheet:
+  - "assets/catppuccin-macchiato.css"
