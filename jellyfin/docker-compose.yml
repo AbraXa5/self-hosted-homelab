@@ -1,0 +1,26 @@
+---
+version: "2.1"
+services:
+  jellyfin:
+    image: lscr.io/linuxserver/jellyfin:latest
+    container_name: jellyfin
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Asia/Kolkata
+      - JELLYFIN_PublishedServerUrl=192.168.1.6
+    volumes:
+      - /opt/jellyfin/server:/config
+      - /media/segateHdd/Movies:/data/movies
+      - /media/segateHdd/Series:/data/tvshows/english
+      - /media/segateHdd/Series_Hindi:/data/tvshows/hindi
+      - /media/segateHdd/Pictures:/data/pictures
+      - /media/segateHdd/TwitchStreams:/data/videos/twitch
+      - /opt/jellyfin/additionalMedia:/data/otherVideos
+    ports:
+      - 8096:8096
+      - 8920:8920
+      # Optional -> Open for discovery
+      - 7359:7359/udp
+      - 1900:1900/udp
+    restart: unless-stopped
