@@ -1,0 +1,20 @@
+---
+version: '3'
+
+services:
+  samba:
+    image: elswork/samba
+    container_name: samba
+    environment:
+      TZ: 'Asia/Kolkata'
+    ports:
+      - "139:139"
+      - "445:445"
+    restart: unless-stopped
+    volumes:
+      - /media/segateHdd:/share/folder
+    command: '-u "1000:1000:abraxas:abraxas:toor" -s "SmbShare:/share/folder:ro:abraxas"'
+    networks:
+      - default
+networks:
+  default:
