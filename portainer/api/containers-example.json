@@ -1,0 +1,12 @@
+{
+  "container_names": [
+    {
+      "container_name": "example1",
+      "container_id": "CONTAINER_ID"
+    },
+    {
+      "container_name": "pihole2",
+      "container_id": "CONTAINER_ID"
+    }
+  ]
+}

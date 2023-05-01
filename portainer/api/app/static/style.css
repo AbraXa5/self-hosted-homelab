@@ -1,0 +1,130 @@
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background-color: #eedfcc;
+    color: #2d2d2d;
+    text-align: center;
+    padding-top: 20px;
+}
+
+.container {
+    background-color: #e0cfa9;
+    border-radius: 10px;
+    padding: 40px;
+    margin: 0 auto;
+    width: 500px;
+    max-width: 90%;
+}
+
+h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 40px;
+}
+
+.btn-group {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.btn {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 10px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.btn-start {
+    background-color: #a8d8ff;
+    color: #2d2d2d;
+}
+
+.btn-start:hover {
+    background-color: #6fbfff;
+}
+
+.btn-stop {
+    background-color: #ff6b6b;
+    color: #2d2d2d;
+}
+
+.btn-stop:hover {
+    background-color: #ff3d3d;
+}
+
+.btn-restart {
+    background-color: #ffdc6b;
+    color: #2d2d2d;
+}
+
+.btn-restart:hover {
+    background-color: #ffbf3d;
+}
+
+.fa-box {
+    color: #2d2d2d;
+    margin-right: 10px;
+    font-size: 48px;
+}
+
+.fa-play {
+    color: #2d2d2d;
+    margin-right: 5px;
+}
+
+.fa-stop {
+    color: #2d2d2d;
+    margin-right: 5px;
+}
+
+.fa-sync-alt {
+    color: #2d2d2d;
+    margin-right: 5px;
+}
+
+@media only screen and (max-width: 600px) {
+    .btn-group {
+        flex-direction: column;
+    }
+    .btn {
+        width: 80%;
+        margin: 5px auto;
+    }
+    h1 {
+        font-size: 28px;
+        margin-bottom: 10px;
+    }
+    h2 {
+        font-size: 20px;
+        margin-bottom: 30px;
+    }
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    font-size: 24px;
+    margin: 10px 0;
+}
+
+a {
+    color: #333;
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+}
+
+a:hover {
+    color: #007bff;
+}

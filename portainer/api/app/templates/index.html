@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Container List</title>
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            rel="stylesheet"
+            href="{{ url_for('send_static', path='style.css') }}"
+        />
+    </head>
+    <body>
+        <div class="container">
+            <h1>Container List</h1>
+            <ul>
+                {% for container_name in container_names %}
+                <li>
+                    <a href="/{{ container_name }}">{{ container_name }}</a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </body>
+</html>

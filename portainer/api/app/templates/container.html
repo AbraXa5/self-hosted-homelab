@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Container Control Panel</title>
+        <link
+            rel="stylesheet"
+            href="{{ url_for('send_static', path='style.css') }}"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        />
+    </head>
+    <body>
+        <div class="container">
+            <h1><i class="fas fa-box"></i> Container Control Panel</h1>
+            <h2>{{ container_name }}</h2>
+            <div class="btn-container">
+                <form
+                    action="{{ url_for('start_container', container_name=container_name) }}"
+                    method="GET"
+                >
+                    <button type="submit" class="btn btn-start">
+                        <i class="fas fa-play"></i> Start
+                    </button>
+                </form>
+                <form
+                    action="{{ url_for('stop_container', container_name=container_name) }}"
+                    method="GET"
+                >
+                    <button type="submit" class="btn btn-stop">
+                        <i class="fas fa-stop"></i> Stop
+                    </button>
+                </form>
+                <form
+                    action="{{ url_for('restart_container', container_name=container_name) }}"
+                    method="GET"
+                >
+                    <button type="submit" class="btn btn-restart">
+                        <i class="fas fa-sync-alt"></i> Restart
+                    </button>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
