@@ -91,7 +91,7 @@ services:
         logo: "assets/tools/prometheus.svg"
         subtitle: "Raspi and container monitoring"
         tag: "status"
-        url: "http://192.168.1.6:3000/d/DYHdTozVz/raspberry-pi-monitoring?orgId=1&refresh=5m&kiosk"
+        url: "http://192.168.1.6:3000/d/DYHdTozVz/raspberry-pi-monitoring?orgId=1&refresh=5s&kiosk"
         target: "_blank"
 
       - name: "Uptime Kuma"
@@ -170,7 +170,7 @@ services:
         url: "https://192.168.1.6:8384/"
         target: "_blank"
 
-  - name: "Tools"
+  - name: "Miscellaneous"
     icon: "assets/tools/sample.png"
     items:
       - name: "Portainer API"
