@@ -184,7 +184,7 @@ services:
         target: "_blank"
 
       - name: "Ghostfolio"
-        logo: "assets/tools/ghostfolio.svg"
+        logo: "assets/tools/ghostfolio.png"
         subtitle: "Personal Finances"
         tag: "tools"
         url: "http://192.168.1.6:3333/"
