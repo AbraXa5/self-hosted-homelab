@@ -1,0 +1,68 @@
+# In addition to that, this docker-compose file adds the following optional
+# configurations:
+#
+# - Instead of SQLite (default), PostgreSQL is used as the database server.
+#
+# To install and update paperless with this file, do the following:
+#
+# - Open portainer Stacks list and click 'Add stack'
+# - Paste the contents of this file and assign a name, e.g. 'Paperless'
+# - Click 'Deploy the stack' and wait for it to be deployed
+# - Open the list of containers, select paperless_webserver_1
+# - Click 'Console' and then 'Connect' to open the command line inside the container
+# - Run 'python3 manage.py createsuperuser' to create a user
+# - Exit the console
+#
+# For more extensive installation and update instructions, refer to the
+# documentation.
+
+version: "3.4"
+services:
+  broker:
+    image: docker.io/library/redis:7
+    restart: unless-stopped
+    volumes:
+      - /opt/paperless-ngx/redisdata:/data
+
+  db:
+    image: docker.io/library/postgres:13
+    restart: unless-stopped
+    volumes:
+      - /opt/paperless-ngx/pgdata:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: paperless
+      POSTGRES_USER: paperless
+      POSTGRES_PASSWORD: paperless
+
+  webserver:
+    image: ghcr.io/paperless-ngx/paperless-ngx:latest
+    restart: unless-stopped
+    depends_on:
+      - db
+      - broker
+    ports:
+      - "8010:8000"
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "curl",
+          "-fs",
+          "-S",
+          "--max-time",
+          "2",
+          "http://localhost:8000"
+        ]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+    volumes:
+      - /opt/paperless-ngx/data:/usr/src/paperless/data
+      - /opt/paperless-ngx/media:/usr/src/paperless/media
+      - /opt/paperless-ngx/export:/usr/src/paperless/export
+      - /opt/paperless-ngx/consume:/usr/src/paperless/consume
+    environment:
+      PAPERLESS_REDIS: redis://broker:6379
+      PAPERLESS_DBHOST: db
+      USERMAP_UID: 1000
+      USERMAP_GID: 1000
