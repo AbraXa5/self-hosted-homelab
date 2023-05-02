@@ -1,2 +1,13 @@
+## IDE
+
+.vscode/*
+!.vscode/extensions.json
+!.vscode/launch.json
+!.vscode/settings.json
+*.sublime-workspace
+
+## Misc
+
 .env
+.env.prod
 *.bak
