@@ -1,5 +1,7 @@
 # Self-hosted HomeLab
 
+![Dashboard Image](images/dashboard.png)
+
 -   [Calibre-web](./calibre-web/)
 -   [Cloudflare tunnel](./cloudflare-tunnel/)
 -   [Container Monitoring](./container-monitoring/)
@@ -21,7 +23,6 @@
 -   [Tailscale VPN](./tailscale/)
 -   [Uptime Kuma](./uptime-kuma/)
 -   [Minimal Vscode](./vscode/)
--   [Watchtower](./)
 -   [Wireguard](./wireguard/)
 
 ## Setup
@@ -51,12 +52,24 @@ Some conatiners need a `.env` file, there's a `.env.example` file to refer to fo
 
 ## Contributing
 
+Install pre-commit
+
 ```bash
 pipx install pre-commit
 pre-commit install
 ```
 
+Update tags for the pre-commit hooks and dry run
+
 ```bash
 pre-commit autoupdate
 pre-commit run --all-files --verbose
 ```
+
+## ToDo
+
+-   [ ] Add watchdog to automatically update docker containers
+-   [ ] Switch to Traefik as the reverse proxy
+-   [ ] Add wireguard configs
+-   [ ] Switch pihole to AdGuard Home
+-   [ ] Setup vaultwarden
