@@ -141,6 +141,7 @@ services:
         tag: "media"
         url: "http://192.168.1.6:8096/"
         target: "_blank"
+
       - name: "PhotoPrism"
         logo: "assets/tools/photo-prism.png"
         subtitle: "Photo Gallery"
@@ -157,12 +158,14 @@ services:
         tag: "cloud"
         url: "http://192.168.1.6:90443/"
         target: "_blank"
+
       - name: "Filebrowser"
         logo: "assets/tools/filebrowser.png"
         subtitle: "Web based file browser"
         tag: "files"
         url: "http://192.168.1.6:9080/"
         target: "_blank"
+
       - name: "Syncthing"
         logo: "assets/tools/syncthing.png"
         subtitle: "Sync Solution"
@@ -178,6 +181,13 @@ services:
         subtitle: "Container Management API"
         tag: "tools"
         url: "http://192.168.1.6:5000/"
+        target: "_blank"
+
+      - name: "Ghostfolio"
+        logo: "assets/tools/ghostfolio.svg"
+        subtitle: "Personal Finances"
+        tag: "tools"
+        url: "http://192.168.1.6:3333/"
         target: "_blank"
 
 stylesheet:
