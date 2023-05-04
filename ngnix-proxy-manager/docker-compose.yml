@@ -13,3 +13,5 @@ services:
       - /opt/ngnix-proxy-manager/data:/data
       - /opt/ngnix-proxy-manager/letsencrypt:/etc/letsencrypt
     restart: unless-stopped
+    labels:
+      - 'kopia_backup'

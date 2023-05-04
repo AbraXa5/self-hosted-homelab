@@ -1,5 +1,4 @@
 ---
-version: '3'
 
 services:
   prometheus:
@@ -14,6 +13,8 @@ services:
     restart: unless-stopped
     command:
       - "--config.file=/etc/prometheus/prometheus.yml"
+    labels:
+      - 'kopia_backup'
 
   grafana:
     image: grafana/grafana-oss:latest
@@ -27,6 +28,8 @@ services:
       - cadvisor
       - prometheus
     restart: unless-stopped
+    labels:
+      - 'kopia_backup'
 
   cadvisor:
     # latest doesn't pull arm, for some reason its pointing to an old version that doesn't support arm
