@@ -8,6 +8,7 @@
 
     "cSpell.words": [
         "autoupdate",
+        "cadvisor",
         "Filebrowser",
         "htpasswd",
         "Jellyfin",
@@ -16,10 +17,13 @@
         "Nextcloud",
         "Pihole",
         "pipx",
+        "raspi",
+        "sendinblue",
         "sshing",
         "Syncthing",
         "Tailscale",
-        "Traefik"
+        "Traefik",
+        "tsdb"
     ],
 
     "git.ignoreLimitWarning": true,
@@ -27,7 +31,7 @@
     "git.branchProtectionPrompt": "alwaysCommitToNewBranch",
     "git.branchRandomName.enable": true,
     "git.pullBeforeCheckout": true,
-    "git.mergeEditor": true,
+    "git.mergeEditor": false,
     "files.insertFinalNewline": true,
 
     "workbench.colorCustomizations": {
