@@ -16,5 +16,8 @@ services:
     command: '-u "1000:1000:abraxas:abraxas:toor" -s "SmbShare:/share/folder:ro:abraxas"'
     networks:
       - default
+    labels:
+      - 'kopia_backup'
+
 networks:
   default:

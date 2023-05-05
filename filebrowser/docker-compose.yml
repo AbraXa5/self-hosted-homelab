@@ -19,3 +19,5 @@ services:
     restart: unless-stopped
     security_opt:
       - no-new-privileges:true
+    labels:
+      - 'kopia_backup'
