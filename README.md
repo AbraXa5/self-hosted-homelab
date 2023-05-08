@@ -68,8 +68,8 @@ pre-commit run --all-files --verbose
 
 ## ToDo
 
+-   [x] Switch pihole to AdGuard Home
 -   [ ] Add watchdog to automatically update docker containers
 -   [ ] Switch to Traefik as the reverse proxy
 -   [ ] Add wireguard configs
--   [ ] Switch pihole to AdGuard Home
--   [ ] Setup vaultwarden
+-   [ ] Setup VaultWarden
