@@ -89,9 +89,9 @@ services:
     items:
       - name: "RasPi Monitoring Kisok"
         logo: "assets/tools/prometheus.svg"
-        subtitle: "Raspi and container monitoring"
+        subtitle: "Raspi and container monitoring kiosk mode"
         tag: "status"
-        url: "http://192.168.1.6:3000/d/DYHdTozVz/raspberry-pi-monitoring?orgId=1&refresh=5s&kiosk"
+        url: "http://192.168.1.6:3003/d/DYHdTozVz/raspberry-pi-monitoring?orgId=1&refresh=5s&kiosk"
         target: "_blank"
 
       - name: "Uptime Kuma"
@@ -101,15 +101,29 @@ services:
         url: "http://192.168.1.6:3001"
         target: "_blank"
 
+      - name: "Grafana"
+        logo: "assets/tools/grafana.png"
+        subtitle: "Graphing"
+        tag: "status"
+        url: "http://192.168.1.6:3003"
+        target: "_blank"
+
   - name: "Networking"
     icon: "assets/tools/sample.png"
     items:
-      - name: "PiHole"
-        logo: "assets/tools/pi-hole.png"
+      - name: "AdGuard Home"
+        logo: "assets/tools/adguard-home.png"
         subtitle: "DNS & Ad Blocker"
         tag: "networking"
-        url: "http://192.168.1.6:9000/admin"
+        url: "http://192.168.1.6:9000"
         target: "_blank"
+
+      # - name: "PiHole"
+      #   logo: "assets/tools/pi-hole.png"
+      #   subtitle: "DNS & Ad Blocker"
+      #   tag: "networking"
+      #   url: "http://192.168.1.6:9000/admin"
+      #   target: "_blank"
 
       - name: "Nginx Proxy manager"
         logo: "assets/tools/nginx-proxy-manager.png"
@@ -125,13 +139,6 @@ services:
         url: "http://192.168.1.6:81"
         target: "_blank"
 
-      - name: "Grafana"
-        logo: "assets/tools/grafana.png"
-        subtitle: "Graphing"
-        tag: "status"
-        url: "http://192.168.1.6:3000"
-        target: "_blank"
-
   - name: "Media"
     icon: "assets/tools/sample.png"
     items:
@@ -141,6 +148,14 @@ services:
         tag: "media"
         url: "http://192.168.1.6:8096/"
         target: "_blank"
+
+      - name: "Jellyseer"
+        logo: "assets/tools/jellyseer.png"
+        subtitle: "Media server"
+        tag: "media"
+        url: "http://192.168.1.6:5055/"
+        target: "_blank"
+
       - name: "PhotoPrism"
         logo: "assets/tools/photo-prism.png"
         subtitle: "Photo Gallery"
