@@ -30,6 +30,12 @@ This will setup the static IP as `HOST_IP_ADDRESS` aafter reboot
 
 Any additional upstream DNS servers can be set up through pihole's settings
 
+## Block and Allow Lists
+
+StevenBlack's list is integrated by default in the Pi
+For anything additional, [firebog.net](https://firebog.net/) is an awesome meta-list
+For white-listing https://github.com/anudeepND/whitelist is a good resource
+
 # ToDo
 
 -   [ ] Setup [log2ram](https://github.com/azlux/log2ram) to save pihole logs to a RAM folder instead of SD card to preserver SD card life
