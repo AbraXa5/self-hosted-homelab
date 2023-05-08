@@ -70,6 +70,7 @@ pre-commit run --all-files --verbose
 
 -   [x] Switch pihole to AdGuard Home
 -   [ ] Add watchdog to automatically update docker containers
+-   [ ] Setup Sonarr, Radarr and Jackett
 -   [ ] Switch to Traefik as the reverse proxy
 -   [ ] Add wireguard configs
 -   [ ] Setup VaultWarden
