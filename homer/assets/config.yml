@@ -170,7 +170,7 @@ services:
         logo: "assets/tools/nextcloud.png"
         subtitle: "Cloud Storage"
         tag: "cloud"
-        url: "http://192.168.1.6:90443/"
+        url: "https://192.168.1.6:8443/"
         target: "_blank"
       - name: "Filebrowser"
         logo: "assets/tools/filebrowser.png"
