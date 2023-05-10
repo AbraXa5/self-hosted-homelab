@@ -35,6 +35,15 @@ curl -X POST http://prometheus:9090/-/reload
 
 Docker containers can be monitored using cAdvisor or a [docker daemon that docker exposes on the host](https://docs.docker.com/config/daemon/prometheus/)
 
+A few [metrics have been disabled](https://github.com/google/cadvisor/blob/master/docs/runtime_options.md) to avoid the race condition caused on a RasPi.
+Additionally limited memory is reserved for the container and dynamic housekeeping is enabled to limit resources
+
+CAdvisor takes up quite a bit of resource, this can be limited by
+
+-   Dynamic housekeeping is enabled
+-   Housekeeping intervals are set to 30 seconds
+-   Set memory reservation to 80M
+
 ## Grafana
 
 -   Add prometheus as the data source using `prometheus:9090` as the URL
