@@ -8,3 +8,6 @@ services:
       - /opt/vscode/config:/home/workspace:cached
     ports:
       - 1337:3000
+    labels:
+      - 'kopia_backup'
+      - 'com.centurylinklabs.watchtower.enable'

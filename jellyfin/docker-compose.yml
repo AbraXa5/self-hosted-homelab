@@ -24,3 +24,6 @@ services:
       - 7359:7359/udp
       - 1900:1900/udp
     restart: unless-stopped
+    labels:
+      - 'kopia_backup'
+      - 'com.centurylinklabs.watchtower.enable'

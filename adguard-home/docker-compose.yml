@@ -1,0 +1,27 @@
+---
+services:
+  adguard-home:
+    image: adguard/adguardhome
+    container_name: adguard-home
+    restart: unless-stopped
+    volumes:
+      - '/opt/adguard-home/work:/opt/adguardhome/work'
+      - '/opt/adguard-home/conf:/opt/adguardhome/conf'
+    ports:
+      - '192.168.1.6:53:53/tcp'
+      - '192.168.1.6:53:53/udp'
+      - '67:67/udp'
+      - '68:68/udp'
+      - '9000:80/tcp'
+      - '3000:3000/tcp'
+      - '853:853/tcp'
+      - '784:784/udp'
+      - '853:853/udp'
+      - '8853:8853/udp'
+      - '5443:5443/tcp'
+      - '5443:5443/udp'
+    cap_add:
+      - NET_ADMIN
+    labels:
+      - 'kopia_backup'
+      - 'com.centurylinklabs.watchtower.enable'

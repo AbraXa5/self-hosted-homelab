@@ -1,0 +1,27 @@
+---
+services:
+  watchtower:
+    image: containrrr/watchtower
+    container_name: watchtower
+    hostname: niflheim
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /etc/localtime:/etc/localtime:ro
+    env_file:
+      - .env
+    environment:
+      # Run daily at 0500 hours
+      WATCHTOWER_SCHEDULE: "0 0 5 * * *"
+      WATCHTOWER_CLEANUP: "true"
+      WATCHTOWER_INCLUDE_RESTARTING: "true"
+
+      # WATCHTOWER_MONITOR_ONLY: "true"     # Don't pull new images
+      # WATCHTOWER_RUN_ONCE: "true"         # Run only once
+
+      WATCHTOWER_NOTIFICATIONS: shoutrrr
+      WATCHTOWER_NOTIFICATION_URL: "${WATCHTOWER_NOTIFICATION_URL}"
+      WATCHTOWER_LABEL_ENABLE: "true"
+
+    labels:
+      - com.centurylinklabs.watchtower.enable
+    restart: always

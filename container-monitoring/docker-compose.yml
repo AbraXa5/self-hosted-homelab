@@ -1,5 +1,4 @@
 ---
-version: '3'
 
 services:
   prometheus:
@@ -14,19 +13,27 @@ services:
     restart: unless-stopped
     command:
       - "--config.file=/etc/prometheus/prometheus.yml"
+      - "--web.enable-lifecycle"
+      - "--storage.tsdb.retention.time=120h"
+    labels:
+      - 'kopia_backup'
+      - 'com.centurylinklabs.watchtower.enable'
 
   grafana:
     image: grafana/grafana-oss:latest
     container_name: grafana
     hostname: grafana
     ports:
-      - "3000:3000"
+      - "3003:3000"
     volumes:
       - /opt/grafana:/var/lib/grafana
     depends_on:
       - cadvisor
       - prometheus
     restart: unless-stopped
+    labels:
+      - 'kopia_backup'
+      - 'com.centurylinklabs.watchtower.enable'
 
   cadvisor:
     # latest doesn't pull arm, for some reason its pointing to an old version that doesn't support arm
@@ -37,13 +44,18 @@ services:
     # ports:
     #   - 8081:8080
     volumes:
-      - /:/rootfs:ro
-      - /var/run:/var/run:rw
-      - /sys:/sys:ro
       - /var/lib/docker/:/var/lib/docker:ro
-      - /dev/disk:/dev/disk:ro
+      - /dev/disk/:/dev/disk:ro
+      - /sys:/sys:ro
+      - /var/run:/var/run:ro
+      - /:/rootfs:ro
+      - /sys/fs/cgroup:/cgroup:ro
       - /etc/machine-id:/etc/machine-id:ro
-      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - /etc/localtime:/etc/localtime:ro
+    deploy:
+      resources:
+        reservations:
+          memory: 80M
     command:
       - "--storage_duration=1m0s"
       - "--allow_dynamic_housekeeping=true"
@@ -51,11 +63,21 @@ services:
       - "--global_housekeeping_interval=30s"
       - "--event_storage_age_limit=default=0"
       - "--event_storage_event_limit=default=0"
+      - "--disable_metrics=percpu,sched,tcp,udp,disk,diskIO,hugetlb,referenced_memory,cpu_topology,resctrl"
     devices:
       - /dev/kmsg
     cap_add:
       - SYS_PTRACE
     privileged: true
+    # FIXME: Add proper healthcheck
+    # healthcheck:
+    #   test: wget --quiet --tries=1 --spider http://cadvisor:8080/healthz || exit 1
+    #   interval: 15s
+    #   timeout: 15s
+    #   retries: 5
+    #   start_period: 30s
+    labels:
+      - 'com.centurylinklabs.watchtower.enable'
 
   node_exporter:
     image: quay.io/prometheus/node-exporter:latest
@@ -138,6 +160,7 @@ services:
       - "--path.sysfs=/host/sys"
       - "--collector.filesystem.ignored-mount-points='^(/rootfs|/host|)/(sys|proc|dev|host|etc)($$|/)'"
       - "--collector.filesystem.ignored-fs-types='^(sys|proc|auto|cgroup|devpts|ns|au|fuse\\.lxc|mqueue)(fs|)$$'"
-
     privileged: true
     restart: unless-stopped
+    labels:
+      - 'com.centurylinklabs.watchtower.enable'

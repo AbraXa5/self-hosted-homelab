@@ -1,6 +1,4 @@
 ---
-version: '3'
-
 services:
   samba:
     image: elswork/samba
@@ -13,8 +11,14 @@ services:
     restart: unless-stopped
     volumes:
       - /media/segateHdd:/share/folder
-    command: '-u "1000:1000:abraxas:abraxas:toor" -s "SmbShare:/share/folder:ro:abraxas"'
+    command: '-u "0:0:root:root:toor" -s "SmbShare:/share/folder:ro:root"'
     networks:
       - default
+    security_opt:
+      - no-new-privileges:true
+    labels:
+      - 'kopia_backup'
+      - 'com.centurylinklabs.watchtower.enable'
+
 networks:
   default:

@@ -1,0 +1,42 @@
+---
+services:
+  nextcloud-db:
+    image: yobasystems/alpine-mariadb:latest
+    container_name: nextcloud-db
+    hostname: nextcloud-db
+    command: --transaction-isolation=READ-COMMITTED --binlog-format=ROW
+    volumes:
+      - /opt/nextcloud/database:/var/lib/mysql
+    env_file:
+      - .env
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_USER=${MYSQL_USER}
+    labels:
+      - 'kopia_backup'
+      - 'com.centurylinklabs.watchtower.enable'
+    restart: unless-stopped
+
+  nextcloud:
+    image: lscr.io/linuxserver/nextcloud
+    container_name: nextcloud
+    hostname: nextcloud
+    environment:
+      - PUID=2002
+      - PGID=2003
+      - TZ=Asia/Kolkata
+    links:
+      - "nextcloud-db"
+    volumes:
+      - /opt/nextcloud/config:/config
+      - /opt/nextcloud/html:/var/www/html
+      - /media/segateHdd/nextcloud/data:/data
+      - /media/segateHdd/nextcloud/additonalData:/mnt/externalDisk
+    ports:
+      - 8443:443
+    labels:
+      - 'kopia_backup'
+      - 'com.centurylinklabs.watchtower.enable'
+    restart: unless-stopped

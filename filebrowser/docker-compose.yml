@@ -1,10 +1,11 @@
 ---
-version: '3'
 services:
   file-browser:
     image: filebrowser/filebrowser
     container_name: file-browser
-    user: 2002:2003
+    # FIXME: using root, becuase the directories are owned by root
+    # ! ideally not recommended
+    user: 0:0
     ports:
       - 9080:80
     volumes:
@@ -19,3 +20,6 @@ services:
     restart: unless-stopped
     security_opt:
       - no-new-privileges:true
+    labels:
+      - 'kopia_backup'
+      - 'com.centurylinklabs.watchtower.enable'
