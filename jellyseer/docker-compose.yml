@@ -11,3 +11,6 @@ services:
     volumes:
       - /opt/jellyseer/config:/app/config
     restart: unless-stopped
+    labels:
+      - 'kopia_backup'
+      - 'com.centurylinklabs.watchtower.enable'

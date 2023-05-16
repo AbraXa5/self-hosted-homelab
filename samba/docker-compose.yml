@@ -18,6 +18,7 @@ services:
       - no-new-privileges:true
     labels:
       - 'kopia_backup'
+      - 'com.centurylinklabs.watchtower.enable'
 
 networks:
   default:

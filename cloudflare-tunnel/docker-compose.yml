@@ -14,3 +14,4 @@ services:
       - /opt/cloudflare-tunnel/cloudflared:/etc/cloudflared
     labels:
       - 'kopia_backup'
+      - 'com.centurylinklabs.watchtower.enable'

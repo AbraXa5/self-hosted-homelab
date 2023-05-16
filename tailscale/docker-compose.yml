@@ -19,6 +19,7 @@ services:
       - .env
     labels:
       - 'kopia_backup'
+      - 'com.centurylinklabs.watchtower.enable'
 
 # Login
 # docker-compose exec tailscale tailscale up

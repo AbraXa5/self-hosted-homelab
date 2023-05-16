@@ -12,6 +12,8 @@ services:
       - ONLYOFFICE_URL=http://onlyoffice
     ports:
       - "8334:8334"
+    labels:
+      - 'com.centurylinklabs.watchtower.enable'
 
   onlyoffice:
     container_name: filestash_oods
@@ -19,3 +21,5 @@ services:
     restart: always
     security_opt:
       - seccomp:unconfined
+    labels:
+      - 'com.centurylinklabs.watchtower.enable'

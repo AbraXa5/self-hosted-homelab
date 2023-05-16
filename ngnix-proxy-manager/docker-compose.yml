@@ -18,3 +18,4 @@ services:
       timeout: 3s
     labels:
       - 'kopia_backup'
+      - 'com.centurylinklabs.watchtower.enable'
