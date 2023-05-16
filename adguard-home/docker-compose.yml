@@ -24,3 +24,4 @@ services:
       - NET_ADMIN
     labels:
       - 'kopia_backup'
+      - 'com.centurylinklabs.watchtower.enable'

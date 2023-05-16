@@ -20,3 +20,4 @@ services:
     restart: unless-stopped
     labels:
       - 'kopia_backup'
+      - 'com.centurylinklabs.watchtower.enable'
