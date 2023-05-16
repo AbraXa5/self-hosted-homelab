@@ -6,6 +6,10 @@
 !.vscode/settings.json
 *.sublime-workspace
 
+## Traefik
+
+acme.json
+
 ## Misc
 
 .env
