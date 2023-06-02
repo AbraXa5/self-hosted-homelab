@@ -1,11 +1,11 @@
 ---
-version: "2"
 services:
   vscode:
     image: gitpod/openvscode-server
     container_name: vscode
     volumes:
       - /opt/vscode/config:/home/workspace:cached
+      - ./assets:/config/homer:rw
     ports:
       - 1337:3000
     labels:
