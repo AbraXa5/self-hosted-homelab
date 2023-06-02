@@ -1,0 +1,11 @@
+---
+services:
+  adguard-home:
+    image: lissy93/adguardian
+    container_name: adguardian
+    restart: unless-stopped
+    env_file:
+      - .env
+    labels:
+      - 'kopia_backup'
+      - 'com.centurylinklabs.watchtower.enable'
