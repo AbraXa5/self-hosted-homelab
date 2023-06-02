@@ -195,5 +195,15 @@ services:
         url: "http://192.168.1.6:5000/"
         target: "_blank"
 
+  - name: "Backup"
+    icon: "assets/tools/sample.png"
+    items:
+      - name: "Kopia Backup"
+        logo: "assets/tools/kopia.svg"
+        subtitle: "Backup server"
+        tag: "tools"
+        url: "https://192.168.1.6:51515/"
+        target: "_blank"
+
 stylesheet:
   - "assets/catppuccin-macchiato.css"
