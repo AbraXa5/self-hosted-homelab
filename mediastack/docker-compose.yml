@@ -1,0 +1,106 @@
+services:
+  traktarr:
+    image: 'eafxx/traktarr:latest'
+    container_name: traktarr
+    environment:
+      - TZ=Asia/Kolkata
+      - PUID=2002
+      - PGID=2003
+      - DELAY=2.5
+      - SORT=rating
+      - NOSEARCH=no
+      - NOTIFICATIONS=yes
+      - BLACKLIST=yes
+      - RUNNOW=yes
+      - SKIPUPDATE=no
+      - APP_BRANCH=master
+    volumes:
+      - '/opt/traktarr/config:/config:rw'
+
+  radarr:
+    image: linuxserver/radarr
+    container_name: radarr
+    environment:
+      - PUID=2002
+      - PGID=2003
+      - TZ=Asia/Kolkata
+    ports:
+      - 7878:7878
+    volumes:
+      - '/opt/radarr:/config'
+      - '/media/segateHdd/niflheim/downloads:/data/downloads'
+      - '/media/segateHdd/Movies:/data/movies'
+    labels:
+      - 'kopia_backup'
+      - 'com.centurylinklabs.watchtower.enable'
+    restart: unless-stopped
+
+  sonarr:
+    image: linuxserver/sonarr
+    container_name: sonarr
+    ports:
+      - 8989:8989
+    environment:
+      - PUID=2002
+      - PGID=2003
+      - TZ=Asia/Kolkata
+    volumes:
+      - '/opt/sonarr:/config'
+      - '/media/segateHdd/niflheim/downloads:/data/downloads'
+      - '/media/segateHdd/Series:/data/tvshows/english'
+    restart: unless-stopped
+    labels:
+      - 'kopia_backup'
+      - 'com.centurylinklabs.watchtower.enable'
+
+  jackett:
+    image: linuxserver/jackett
+    container_name: jackett
+    ports:
+      - 9117:9117
+    environment:
+      - PUID=2002
+      - PGID=2003
+      - TZ=Asia/Kolkata
+    volumes:
+      - '/opt/jackett:/config'
+    restart: unless-stopped
+    labels:
+      - 'kopia_backup'
+      - 'com.centurylinklabs.watchtower.enable'
+
+  lidarr:
+    image: linuxserver/lidarr
+    container_name: lidarr
+    ports:
+      - 8686:8686
+    environment:
+      - PUID=2002
+      - PGID=2003
+      - TZ=Asia/Kolkata
+    volumes:
+      - '/opt/lidarr:/config'
+      - '/media/segateHdd/niflheim/downloads:/data/downloads'
+      - '/media/segateHdd/Music:/data/music'
+    restart: unless-stopped
+    labels:
+      - 'kopia_backup'
+      - 'com.centurylinklabs.watchtower.enable'
+
+  bazarr:
+    image: linuxserver/bazarr
+    container_name: bazarr
+    ports:
+      - 6767:6767
+    environment:
+      - PUID=2002
+      - PGID=2003
+      - TZ=Asia/Kolkata
+    volumes:
+      - '/opt/bazarr:/config'
+      - /media/segateHdd/Movies:/data/movies
+      - /media/segateHdd/Series:/data/tv
+    restart: unless-stopped
+    labels:
+      - 'kopia_backup'
+      - 'com.centurylinklabs.watchtower.enable'
