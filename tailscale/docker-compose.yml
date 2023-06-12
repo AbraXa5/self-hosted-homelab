@@ -1,5 +1,4 @@
 ---
-version: '3'
 services:
   tailscale:
     container_name: tailscale
@@ -15,14 +14,20 @@ services:
     privileged: true
     restart: unless-stopped
     network_mode: host
+
+    # FIXME: tailscale doesn't seem to recognise env variables, https://hub.docker.com/r/tailscale/tailscale
     env_file:
       - .env
     labels:
       - 'kopia_backup'
       - 'com.centurylinklabs.watchtower.enable'
 
-# Login
+# Connect to tailscale and Login (when not using the auth key)
 # docker-compose exec tailscale tailscale up
+
+# Connect with exit node enabled and subnets advertised
+# docker exec tailscale tailscale up --advertise-exit-node --advertise-routes=192.168.1.0/24
+# docker compose exec tailscale tailscale up
 
 # Get status
 # docker exec tailscale tailscale status
