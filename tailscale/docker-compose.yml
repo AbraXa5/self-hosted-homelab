@@ -1,3 +1,12 @@
+# Connect to tailscale and Login (when not using the auth key)
+# docker-compose exec tailscale tailscale up
+
+# Connect with exit node enabled and subnets advertised
+# docker exec tailscale tailscale up --advertise-exit-node --advertise-routes=192.168.1.0/24
+# docker compose exec tailscale tailscale up
+
+# Get status
+# docker exec tailscale tailscale status
 ---
 services:
   tailscale:
@@ -20,14 +29,5 @@ services:
       - .env
     labels:
       - 'kopia_backup'
-      - 'com.centurylinklabs.watchtower.enable'
-
-# Connect to tailscale and Login (when not using the auth key)
-# docker-compose exec tailscale tailscale up
-
-# Connect with exit node enabled and subnets advertised
-# docker exec tailscale tailscale up --advertise-exit-node --advertise-routes=192.168.1.0/24
-# docker compose exec tailscale tailscale up
-
-# Get status
-# docker exec tailscale tailscale status
+      # Disable automatic watchtower updates to prevent braking changes
+      # - 'com.centurylinklabs.watchtower.enable'
