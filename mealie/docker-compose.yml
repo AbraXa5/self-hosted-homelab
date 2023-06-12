@@ -1,0 +1,19 @@
+---
+services:
+  mealie:
+    container_name: mealie
+    image: hkotel/mealie:latest
+    restart: always
+    ports:
+      - 6336:80
+    environment:
+      DB_TYPE: sqlite
+      DEFAULT_EMAIL: abraxas@niflheim.online
+      DEFAULT_PASSWORD: mealie_passwd
+      TOKEN_TIME: 3
+      TZ: Asia/Kolkata
+    volumes:
+      - /opt/mealie/data:/app/data
+    labels:
+      - 'kopia_backup'
+      - 'com.centurylinklabs.watchtower.enable'

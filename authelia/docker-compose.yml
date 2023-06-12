@@ -1,0 +1,16 @@
+# to add a user, add directly to `authelia/users_database.yml`
+# then get the encrypted password with
+# docker run --rm ghcr.io/authelia/authelia authelia hash-password yourpassword
+# https://www.linuxserver.io/blog/2020-08-26-setting-up-authelia#users_database-yml
+---
+services:
+  authelia:
+    image: ghcr.io/authelia/authelia
+    container_name: authelia
+    environment:
+      - PUID=2002
+      - PGID=2003
+      - TZ=Asia/Kolkata
+    volumes:
+      - /opt/authelia/config:/config
+    restart: unless-stopped
