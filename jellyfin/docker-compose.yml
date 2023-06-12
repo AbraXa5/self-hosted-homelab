@@ -1,14 +1,15 @@
 ---
-version: "2.1"
 services:
   jellyfin:
     image: lscr.io/linuxserver/jellyfin:latest
     container_name: jellyfin
+    hostname: jellyfin
     environment:
       - PUID=1000
       - PGID=1000
       - TZ=Asia/Kolkata
       - JELLYFIN_PublishedServerUrl=192.168.1.6
+      # - HEALTHCHECK_URL="http://localhost:8096/health"
     volumes:
       - /opt/jellyfin/server:/config
       - /media/segateHdd/Movies:/data/movies
@@ -17,6 +18,20 @@ services:
       - /media/segateHdd/Pictures:/data/pictures
       - /media/segateHdd/TwitchStreams:/data/videos/twitch
       - /opt/jellyfin/additionalMedia:/data/otherVideos
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "curl",
+          "-fs",
+          "-S",
+          "--max-time",
+          "2",
+          "http://localhost:8096/health"
+        ]
+      interval: 30s
+      timeout: 10s
+      retries: 5
     ports:
       - 8096:8096
       - 8920:8920
