@@ -7,10 +7,16 @@ services:
       - '80:80' # HTTP port
       - '81:81' # Admin Port
       - '443:443' # HTTPS Port
+    environment:
+      # - TP_COMMUNITY_THEME=true
+      - TP_THEME=nord
     volumes:
-      - /opt/ngnix-proxy-manager/config.json:/app/config/production.json
+      # - /opt/ngnix-proxy-manager/config.json:/app/config/production.json
       - /opt/ngnix-proxy-manager/data:/data
       - /opt/ngnix-proxy-manager/letsencrypt:/etc/letsencrypt
+      # Using theme from https://theme-park.dev/
+      # https://raw.githubusercontent.com/GilbN/theme.park/develop/docker-mods/nginx-proxy-manager/root/etc/cont-init.d/98-themepark
+      - /opt/ngnix-proxy-manager/98-themepark:/etc/cont-init.d/99-themepark
     restart: unless-stopped
     healthcheck:
       test: [ "CMD", "/bin/check-health" ]
