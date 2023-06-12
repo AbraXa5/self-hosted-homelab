@@ -1,0 +1,10 @@
+---
+services:
+  cyberchef:
+    container_name: cyberchef
+    hostname: cyberchef
+    image: mpepping/cyberchef
+    ports:
+      - 1338:8000
+    labels:
+      - 'com.centurylinklabs.watchtower.enable'
