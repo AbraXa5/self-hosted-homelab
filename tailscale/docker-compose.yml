@@ -2,7 +2,7 @@
 services:
   tailscale:
     container_name: tailscale
-    hostname: tailscale-vpn
+    hostname: niflheim # Used by MagicDNS
     image: tailscale/tailscale:stable
     volumes:
       - /opt/tailscale-vpn:/var/lib # State data will be stored in this directory
