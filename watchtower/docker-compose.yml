@@ -21,7 +21,7 @@ services:
       WATCHTOWER_NOTIFICATIONS: shoutrrr
       WATCHTOWER_NOTIFICATION_URL: "${WATCHTOWER_NOTIFICATION_URL}"
       WATCHTOWER_LABEL_ENABLE: "true"
-
+    privileged: true
     labels:
       - com.centurylinklabs.watchtower.enable
     restart: always
