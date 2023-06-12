@@ -50,6 +50,20 @@ docker-compose up -d --force-recreate --remove-orphans
 
 Some conatiners need a `.env` file, there's a `.env.example` file to refer to for that. Same goes for `config.yml` if required
 
+### Docker cgroup mnemory issue fix
+
+On arm devices, enabling cgroud memory doesn't take effect.
+Adding this to `/boot/cmdline.txt` and rebooting should help fix the issue, [src](https://github.com/docker/for-linux/issues/1112)
+
+```txt
+cgroup_enable=cpuset cgroup_enable=memory cgroup_memory=1
+```
+
+Verify by running.
+```bash
+docker stats
+```
+
 ## Contributing
 
 Install pre-commit
@@ -69,8 +83,9 @@ pre-commit run --all-files --verbose
 ## ToDo
 
 -   [x] Switch pihole to AdGuard Home
--   [ ] Add watchdog to automatically update docker containers
+-   [x] Add watchdog to automatically update docker containers
 -   [ ] Setup Sonarr, Radarr and Jackett
 -   [ ] Switch to Traefik as the reverse proxy
--   [ ] Add wireguard configs
+-   [ ] ~~Add wireguard configs~~
+-   [x] Setup tailscale for remote access
 -   [ ] Setup VaultWarden
