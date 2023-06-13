@@ -1,29 +1,51 @@
 services:
-  traktarr:
-    image: 'eafxx/traktarr:latest'
-    container_name: traktarr
+  # traktarr:
+  #   image: 'eafxx/traktarr:latest'
+  #   container_name: traktarr
+  #   environment:
+  #     - TZ=Asia/Kolkata
+  #     - PUID=2002
+  #     - PGID=2003
+  #     - DELAY=2.5
+  #     - SORT=rating
+  #     - NOSEARCH=no
+  #     - NOTIFICATIONS=yes
+  #     - BLACKLIST=yes
+  #     - RUNNOW=yes
+  #     - SKIPUPDATE=no
+  #     - APP_BRANCH=master
+  #   volumes:
+  #     - '/opt/traktarr/config:/config:rw'
+
+  jellyseerr:
+    image: fallenbagel/jellyseerr:latest
+    container_name: jellyseerr
+    hostname: jellyseer
     environment:
+      - LOG_LEVEL=debug
       - TZ=Asia/Kolkata
-      - PUID=2002
-      - PGID=2003
-      - DELAY=2.5
-      - SORT=rating
-      - NOSEARCH=no
-      - NOTIFICATIONS=yes
-      - BLACKLIST=yes
-      - RUNNOW=yes
-      - SKIPUPDATE=no
-      - APP_BRANCH=master
+    ports:
+      - 5055:5055
     volumes:
-      - '/opt/traktarr/config:/config:rw'
+      - /opt/jellyseer/config:/app/config
+    restart: unless-stopped
+    labels:
+      - 'kopia_backup'
+      - 'com.centurylinklabs.watchtower.enable'
 
   radarr:
-    image: linuxserver/radarr
+    image: linuxserver/radarr:latest
     container_name: radarr
+    hostname: radarr
+    dns:
+      - 192.168.1.6
+      - 1.1.1.1
     environment:
       - PUID=2002
       - PGID=2003
       - TZ=Asia/Kolkata
+      # - DOCKER_MODS=ghcr.io/gilbn/theme.park:radarr
+      # - TP_THEME=nord
     ports:
       - 7878:7878
     volumes:
@@ -36,14 +58,20 @@ services:
     restart: unless-stopped
 
   sonarr:
-    image: linuxserver/sonarr
+    image: linuxserver/sonarr:latest
     container_name: sonarr
+    hostname: sonarr
     ports:
       - 8989:8989
+    dns:
+      - 192.168.1.6
+      - 1.1.1.1
     environment:
       - PUID=2002
       - PGID=2003
       - TZ=Asia/Kolkata
+      - DOCKER_MODS=ghcr.io/gilbn/theme.park:sonarr
+      - TP_THEME=nord
     volumes:
       - '/opt/sonarr:/config'
       - '/media/segateHdd/niflheim/downloads:/data/downloads'
@@ -54,14 +82,22 @@ services:
       - 'com.centurylinklabs.watchtower.enable'
 
   jackett:
-    image: linuxserver/jackett
+    image: linuxserver/jackett:latest
     container_name: jackett
+    hostname: jackett
+    dns:
+      - 192.168.1.6
+      - 1.1.1.1
+    sysctls:
+      - net.ipv6.conf.all.disable_ipv6=1
     ports:
       - 9117:9117
     environment:
       - PUID=2002
       - PGID=2003
       - TZ=Asia/Kolkata
+      - DOCKER_MODS=ghcr.io/gilbn/theme.park:jackett
+      - TP_THEME=nord
     volumes:
       - '/opt/jackett:/config'
     restart: unless-stopped
@@ -69,26 +105,39 @@ services:
       - 'kopia_backup'
       - 'com.centurylinklabs.watchtower.enable'
 
-  lidarr:
-    image: linuxserver/lidarr
-    container_name: lidarr
-    ports:
-      - 8686:8686
+  flaresolverr:
+    image: ghcr.io/flaresolverr/flaresolverr:latest
+    container_name: flaresolverr
+    hostname: flaresolverr
     environment:
-      - PUID=2002
-      - PGID=2003
+      - LOG_LEVEL=${LOG_LEVEL:-info}
+      - LOG_HTML=${LOG_HTML:-false}
+      - CAPTCHA_SOLVER=${CAPTCHA_SOLVER:-none}
       - TZ=Asia/Kolkata
-    volumes:
-      - '/opt/lidarr:/config'
-      - '/media/segateHdd/niflheim/downloads:/data/downloads'
-      - '/media/segateHdd/Music:/data/music'
+    ports:
+      - 8191:8191
     restart: unless-stopped
-    labels:
-      - 'kopia_backup'
-      - 'com.centurylinklabs.watchtower.enable'
+
+  # lidarr:
+  #   image: linuxserver/lidarr
+  #   container_name: lidarr
+  #   ports:
+  #     - 8686:8686
+  #   environment:
+  #     - PUID=2002
+  #     - PGID=2003
+  #     - TZ=Asia/Kolkata
+  #   volumes:
+  #     - '/opt/lidarr:/config'
+  #     - '/media/segateHdd/niflheim/downloads:/data/downloads'
+  #     - '/media/segateHdd/Music:/data/music'
+  #   restart: unless-stopped
+  #   labels:
+  #     - 'kopia_backup'
+  #     - 'com.centurylinklabs.watchtower.enable'
 
   bazarr:
-    image: linuxserver/bazarr
+    image: linuxserver/bazarr:latest
     container_name: bazarr
     ports:
       - 6767:6767
@@ -96,10 +145,38 @@ services:
       - PUID=2002
       - PGID=2003
       - TZ=Asia/Kolkata
+      - DOCKER_MODS=ghcr.io/gilbn/theme.park:bazarr
+      - TP_THEME=nord
     volumes:
       - '/opt/bazarr:/config'
       - /media/segateHdd/Movies:/data/movies
       - /media/segateHdd/Series:/data/tv
+    restart: unless-stopped
+    labels:
+      - 'kopia_backup'
+      - 'com.centurylinklabs.watchtower.enable'
+
+  transmission:
+    image: linuxserver/transmission:latest
+    container_name: transmission
+    hostname: transmission
+    environment:
+      - PUID=2002
+      - PGID=2003
+      - TZ=Asia/Kolkata
+      - DOCKER_MODS=linuxserver/mods:transmission-floodui
+    env_file:
+      - .env
+    ports:
+      - 9091:9091 # Web UI port
+      - 51413:51413 # Torrent port (TCP)
+      - 51413:51413/udp # Torrent port (UDP)
+    volumes:
+      - /opt/transmission/config:/config
+      # Change defautl download locations in preferences
+      - /media/segateHdd/niflheim/downloads:/data/downloads
+      - /media/segateHdd/niflheim/incomplete:/data/incomplete
+      - /opt/transmission/watch:/data/watch
     restart: unless-stopped
     labels:
       - 'kopia_backup'
