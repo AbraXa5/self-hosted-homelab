@@ -91,7 +91,7 @@ services:
         logo: "assets/tools/prometheus.svg"
         subtitle: "Raspi and container monitoring kiosk mode"
         tag: "status"
-        url: "https://monitoring.lan.niflheim.online/d/DYHdTozVz/raspberry-pi-monitoring?orgId=1&refresh=5s&kiosk"
+        url: "https://monitoring.lan.niflheim.online/d/DYHdTozVz/raspberry-pi-monitoring?orgId=1&refresh=5s&from=now-1h&to=now&kiosk"
         target: "_blank"
 
       - name: "Uptime Kuma"
@@ -230,7 +230,7 @@ services:
         url: "https://api.lan.niflheim.online"
         target: "_blank"
       - name: "FreshRss"
-        logo: "assets/tools/freshrss"
+        logo: "assets/tools/freshrss.svg"
         subtitle: "RSS"
         tag: "tools"
         url: "https://rss.lan.niflheim.online"
