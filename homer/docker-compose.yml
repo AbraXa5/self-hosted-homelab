@@ -13,4 +13,4 @@ services:
       - GID=1000
     restart: unless-stopped
     labels:
-      - 'com.centurylinklabs.watchtower.enable'
+      - 'com.centurylinklabs.watchtower.enable=true'

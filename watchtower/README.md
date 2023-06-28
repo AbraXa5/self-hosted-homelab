@@ -29,6 +29,13 @@ It also supports a bunch of configurations
 -   `WATCHTOWER_SCHEDULE` -> Run watchtower on a schedule
     -   This needs a 6 set cron job
 
+Run watchtower once against all containers and cleanup
 
+```sh
+> docker run --rm \
+  --name watchtower_once \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  containrrr/watchtower --run-once --cleanup
+```
 
 # Creating a discord webhook, https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks

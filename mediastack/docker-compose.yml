@@ -31,7 +31,7 @@ services:
     restart: unless-stopped
     labels:
       - 'kopia_backup'
-      - 'com.centurylinklabs.watchtower.enable'
+      - 'com.centurylinklabs.watchtower.enable=true'
 
   radarr:
     image: linuxserver/radarr:latest
@@ -54,7 +54,7 @@ services:
       - '/media/segateHdd/Movies:/data/movies'
     labels:
       - 'kopia_backup'
-      - 'com.centurylinklabs.watchtower.enable'
+      - 'com.centurylinklabs.watchtower.enable=true'
     restart: unless-stopped
 
   sonarr:
@@ -79,7 +79,7 @@ services:
     restart: unless-stopped
     labels:
       - 'kopia_backup'
-      - 'com.centurylinklabs.watchtower.enable'
+      - 'com.centurylinklabs.watchtower.enable=true'
 
   jackett:
     image: linuxserver/jackett:latest
@@ -103,7 +103,7 @@ services:
     restart: unless-stopped
     labels:
       - 'kopia_backup'
-      - 'com.centurylinklabs.watchtower.enable'
+      - 'com.centurylinklabs.watchtower.enable=true'
 
   flaresolverr:
     image: ghcr.io/flaresolverr/flaresolverr:latest
@@ -134,7 +134,7 @@ services:
   #   restart: unless-stopped
   #   labels:
   #     - 'kopia_backup'
-  #     - 'com.centurylinklabs.watchtower.enable'
+  #     - 'com.centurylinklabs.watchtower.enable=true'
 
   bazarr:
     image: linuxserver/bazarr:latest
@@ -154,7 +154,7 @@ services:
     restart: unless-stopped
     labels:
       - 'kopia_backup'
-      - 'com.centurylinklabs.watchtower.enable'
+      - 'com.centurylinklabs.watchtower.enable=true'
 
   transmission:
     image: linuxserver/transmission:latest
@@ -180,4 +180,4 @@ services:
     restart: unless-stopped
     labels:
       - 'kopia_backup'
-      - 'com.centurylinklabs.watchtower.enable'
+      - 'com.centurylinklabs.watchtower.enable=true'

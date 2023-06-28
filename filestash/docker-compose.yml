@@ -13,7 +13,7 @@ services:
     ports:
       - "8334:8334"
     labels:
-      - 'com.centurylinklabs.watchtower.enable'
+      - 'com.centurylinklabs.watchtower.enable=true'
 
   onlyoffice:
     container_name: filestash_oods
@@ -22,4 +22,4 @@ services:
     security_opt:
       - seccomp:unconfined
     labels:
-      - 'com.centurylinklabs.watchtower.enable'
+      - 'com.centurylinklabs.watchtower.enable=true'

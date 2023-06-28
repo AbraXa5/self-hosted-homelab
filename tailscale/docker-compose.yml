@@ -30,4 +30,4 @@ services:
     labels:
       - 'kopia_backup'
       # Disable automatic watchtower updates to prevent braking changes
-      # - 'com.centurylinklabs.watchtower.enable'
+      # - 'com.centurylinklabs.watchtower.enable=true'

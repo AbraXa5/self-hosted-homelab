@@ -16,7 +16,7 @@ services:
       - MYSQL_USER=${MYSQL_USER}
     labels:
       - 'kopia_backup'
-      - 'com.centurylinklabs.watchtower.enable'
+      - 'com.centurylinklabs.watchtower.enable=true'
     restart: unless-stopped
 
   nextcloud:
@@ -38,5 +38,5 @@ services:
       - 8443:443
     labels:
       - 'kopia_backup'
-      - 'com.centurylinklabs.watchtower.enable'
+      - 'com.centurylinklabs.watchtower.enable=true'
     restart: unless-stopped

@@ -10,4 +10,4 @@ services:
       - 1337:3000
     labels:
       - 'kopia_backup'
-      - 'com.centurylinklabs.watchtower.enable'
+      - 'com.centurylinklabs.watchtower.enable=true'

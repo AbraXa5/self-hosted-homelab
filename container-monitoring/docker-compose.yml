@@ -17,7 +17,7 @@ services:
       - "--storage.tsdb.retention.time=120h"
     labels:
       - 'kopia_backup'
-      - 'com.centurylinklabs.watchtower.enable'
+      - 'com.centurylinklabs.watchtower.enable=true'
 
   grafana:
     image: grafana/grafana-oss:latest
@@ -33,7 +33,7 @@ services:
     restart: unless-stopped
     labels:
       - 'kopia_backup'
-      - 'com.centurylinklabs.watchtower.enable'
+      - 'com.centurylinklabs.watchtower.enable=true'
 
   cadvisor:
     # latest doesn't pull arm, for some reason its pointing to an old version that doesn't support arm
@@ -77,7 +77,7 @@ services:
     #   retries: 5
     #   start_period: 30s
     labels:
-      - 'com.centurylinklabs.watchtower.enable'
+      - 'com.centurylinklabs.watchtower.enable=true'
 
   node_exporter:
     image: quay.io/prometheus/node-exporter:latest
@@ -163,4 +163,4 @@ services:
     privileged: true
     restart: unless-stopped
     labels:
-      - 'com.centurylinklabs.watchtower.enable'
+      - 'com.centurylinklabs.watchtower.enable=true'

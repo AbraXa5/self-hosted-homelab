@@ -32,4 +32,4 @@ services:
       # Mount path for browsing mounted snaphots
       - /mnt/kopia:/tmp:shared
     labels:
-      - 'com.centurylinklabs.watchtower.enable'
+      - 'com.centurylinklabs.watchtower.enable=true'

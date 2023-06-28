@@ -16,4 +16,4 @@ services:
       - /opt/mealie/data:/app/data
     labels:
       - 'kopia_backup'
-      - 'com.centurylinklabs.watchtower.enable'
+      - 'com.centurylinklabs.watchtower.enable=true'

@@ -7,4 +7,4 @@ services:
     ports:
       - 1338:8000
     labels:
-      - 'com.centurylinklabs.watchtower.enable'
+      - 'com.centurylinklabs.watchtower.enable=true'
