@@ -3,7 +3,7 @@ services:
   cyberchef:
     container_name: cyberchef
     hostname: cyberchef
-    image: mpepping/cyberchef
+    image: mpepping/cyberchef:latest
     ports:
       - 1338:8000
     labels:
