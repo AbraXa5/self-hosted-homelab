@@ -17,6 +17,7 @@ services:
       - /media/segateHdd/Series_Hindi:/data/tvshows/hindi
       - /media/segateHdd/Pictures:/data/pictures
       - /media/segateHdd/TwitchStreams:/data/videos/twitch
+      - /media/segateHdd/niflheim/tubearchivist/media:/data/youtube
       - /opt/jellyfin/additionalMedia:/data/otherVideos
     healthcheck:
       test:
