@@ -3,7 +3,7 @@ services:
   file-browser:
     image: filebrowser/filebrowser
     container_name: file-browser
-    # FIXME: using root, becuase the directories are owned by root
+    # FIXME: using root, becuase the directories are by root
     # ! ideally not recommended
     user: 0:0
     ports:
