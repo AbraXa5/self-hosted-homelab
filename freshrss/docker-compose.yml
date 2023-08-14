@@ -13,3 +13,6 @@ services:
     ports:
       - 7080:80
     restart: unless-stopped
+    labels:
+      - 'kopia_backup'
+      - 'com.centurylinklabs.watchtower.enable=true'
