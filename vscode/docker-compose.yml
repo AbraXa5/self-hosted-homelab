@@ -1,13 +1,25 @@
 ---
 services:
-  vscode:
-    image: gitpod/openvscode-server
-    container_name: vscode
+  vscode-server:
+    image: linuxserver/code-server:latest
+    container_name: vscode-server
+    env_file:
+      - .env
+    environment:
+      - PUID=2002
+      - PGID=2003
+      - TZ=Asia/Kolkata
+      - PASSWORD=${PASSWORD}
+      - SUDO_PASSWORD=${SUDO_PASSWORD}
+      - PROXY_DOMAIN=code.lan.niflheim.online
+      - DOCKER_MODS=linuxserver/mods:code-server-golang|linuxserver/mods:code-server-python3|linuxserver/mods:code-server-powershell|linuxserver/mods:code-server-shellcheck
     volumes:
-      - /opt/vscode/config:/home/workspace:cached
-      - ./assets:/config/homer:rw
+      - /opt/vscode/config:/config
+      - /home/abraxas/Documents/Projects/self-hosted-homelab/homer/assets:/homer:rw
+      - /home/abraxas/Documents/Projects:/projects:rw
     ports:
-      - 1337:3000
+      - 1337:8443
+    restart: unless-stopped
     labels:
       - 'kopia_backup'
       - 'com.centurylinklabs.watchtower.enable=true'
