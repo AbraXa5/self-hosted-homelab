@@ -21,7 +21,7 @@ services:
       - sys_module
     command: tailscaled
     privileged: true
-    restart: unless-stopped
+    restart: always
     network_mode: host
 
     # FIXME: tailscale doesn't seem to recognise env variables, https://hub.docker.com/r/tailscale/tailscale

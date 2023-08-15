@@ -3,7 +3,7 @@ services:
   adguard-home:
     image: adguard/adguardhome:latest
     container_name: adguard-home
-    restart: unless-stopped
+    restart: always
     volumes:
       - '/opt/adguard-home/work:/opt/adguardhome/work'
       - '/opt/adguard-home/conf:/opt/adguardhome/conf'

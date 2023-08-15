@@ -5,7 +5,7 @@ services:
     image: kopia/kopia:latest
     hostname: kopia-backup
     container_name: kopia
-    restart: unless-stopped
+    restart: always
     ports:
       - 51515:51515
     # Setup the server that provides the web gui

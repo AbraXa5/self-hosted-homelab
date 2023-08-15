@@ -39,7 +39,7 @@ services:
       # Optional -> Open for discovery
       - 7359:7359/udp
       - 1900:1900/udp
-    restart: unless-stopped
+    restart: always
     labels:
       - 'kopia_backup'
       - 'com.centurylinklabs.watchtower.enable=true'

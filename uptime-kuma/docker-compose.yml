@@ -1,6 +1,4 @@
 ---
-version: "3.3"
-
 services:
   uptime-kuma:
     image: louislam/uptime-kuma
@@ -10,7 +8,7 @@ services:
     ports:
       - 3001:3001
     dns: 192.168.1.6
-    restart: unless-stopped
+    restart: always
     security_opt:
       - no-new-privileges:true
     labels:

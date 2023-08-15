@@ -17,7 +17,7 @@ services:
       - 8384:8384
       - 22000:22000
       - 21027:21027/udp
-    restart: unless-stopped
+    restart: always
     security_opt:
       - no-new-privileges:true
     labels:
