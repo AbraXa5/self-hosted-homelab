@@ -149,6 +149,13 @@ services:
         url: "https://jellyfin.lan.niflheim.online"
         target: "_blank"
 
+      - name: "Tube Archivist"
+        logo: "assets/tools/tube-archivist.png"
+        subtitle: "Youtube Archive"
+        tag: "media"
+        url: "https://yt.lan.niflheim.online"
+        target: "_blank"
+
       - name: "Jellyseer"
         logo: "assets/tools/jellyseer.png"
         subtitle: "Media server"
