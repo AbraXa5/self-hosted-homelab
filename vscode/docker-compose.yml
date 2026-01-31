@@ -19,7 +19,7 @@ services:
       - /home/abraxas/Documents/Projects:/projects:rw
     ports:
       - 1337:8443
-    restart: always
+    restart: unless-stopped
     labels:
       - 'kopia_backup'
       - 'com.centurylinklabs.watchtower.enable=true'
