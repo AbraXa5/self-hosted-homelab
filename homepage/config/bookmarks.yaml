@@ -1,0 +1,74 @@
+---
+# For configuration options and examples, please see:
+# https://gethomepage.dev/latest/configs/bookmarks
+
+- Developer:
+    - Blog:
+        - abbr: BG
+          href: https://abraxas.pages.dev/
+          description: Personal Blog
+          icon: si-cloudflare
+    - Dotfiles:
+        - abbr: DT
+          href: https://github.com/AbraXa5/dotfiles
+          description: Dotfiles repo
+          icon: si-slashdot
+    - HTB Notes:
+        - abbr: HN
+          href: https://github.com/AbraXa5/HTB
+          description: HTB Running notes
+          icon: si-obsidian
+    - HomeLab:
+        - abbr: LAB
+          href: https://github.com/AbraXa5/self-hosted-homelab
+          description: HomeLab compose and configs
+          icon: si-platformio
+    - Github:
+        - abbr: GH
+          href: https://github.com/AbraXa5
+          description: Github Profile
+          icon: github.png
+
+- Social:
+    - LinkedIn:
+        - abbr: LI
+          href: https://linkedin.com/
+          description: LinkedIn
+          icon: linkedin.png
+    - InoReader:
+        - abbr: INO
+          href: https://www.inoreader.com/
+          description: InoReader - RSS Feed
+          icon: freshrss.png
+    - Reddit:
+        - abbr: RE
+          href: https://reddit.com/
+          description: The front page of the internet
+          icon: reddit.png
+
+- Other:
+    - YouTube:
+        - abbr: YT
+          href: https://youtube.com/
+          description: YouTube
+          icon: youtube.png
+    - HackTheBox:
+        - abbr: HTB
+          href: https://app.hackthebox.com/home
+          description: Hack The Box
+          icon: si-hackthebox
+    - Portswigger:
+        - abbr: PS
+          href: https://app.hackthebox.com/home
+          description: Portswigger Labs
+          icon: si-portswigger
+    - TryHackMe:
+        - abbr: THM
+          href: https://tryhackme.com/
+          description: Try Hack Me
+          icon: si-tryhackme
+    - Gmail:
+        - abbr: GM
+          href: https://mail.google.com/mail/u/0/#inbox
+          description: Gmail
+          icon: gmail.png

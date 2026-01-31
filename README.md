@@ -95,10 +95,10 @@ pre-commit run --all-files --verbose
 
 ## ToDo
 
--   [x] Switch pihole to AdGuard Home
--   [x] Add watchdog to automatically update docker containers
--   [x] Setup Sonarr, Radarr and Jackett
--   [ ] Switch to Traefik as the reverse proxy
--   [x] ~~Add wireguard configs~~
--   [x] Setup tailscale for remote access
--   [ ] Setup VaultWarden
+- [x] Switch pihole to AdGuard Home
+- [x] Add watchdog to automatically update docker containers
+- [x] Setup Sonarr, Radarr and Jackett
+- [ ] Switch to Traefik as the reverse proxy
+- [x] ~~Add wireguard configs~~
+- [x] Setup tailscale for remote access
+- [ ] Setup VaultWarden

@@ -45,7 +45,7 @@ listen=YES
 pam_service_name=vsftpd
 
 user_sub_token=$USER
-local_root=/media/segateHdd/niflheim/ftp
+local_root=/media/externalHdd/niflheim/ftp
 ```
 
 Create certs

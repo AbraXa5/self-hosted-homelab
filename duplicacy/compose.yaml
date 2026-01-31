@@ -1,0 +1,23 @@
+# https://duplicacy.com/
+# https://spin.atomicobject.com/duplicacy-docker-image/
+# https://unixorn.github.io/post/backing-up-the-cluster-with-duplicacy/
+---
+services:
+  duplicacy-web:
+    container_name: duplicacy-web
+    hostname: duplicacy-web
+    image: saspus/duplicacy-web:mini
+    environment:
+      - USR_ID=2002
+      - GRP_ID=2003
+      - TZ=Asia/Kolkata
+      - DUPLICACY_WEB_VERSION=latest
+    ports:
+      - "3875:3875/tcp"
+    volumes:
+      - /opt/duplicacy-web/config:/config
+      - /opt/duplicacy-web/logs:/logs
+      - /opt/duplicacy-web/cache:/cache
+      # Backup directories
+      - /path/to/backup/dir1:/data/dir1:ro
+      - /path/to/backup/dir2:/data/dir2:ro

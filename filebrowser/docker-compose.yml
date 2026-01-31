@@ -11,7 +11,7 @@ services:
     volumes:
       - /opt/filebrowser/srv:/srv
       # Mounting addintional directories at /srv
-      - /media/segateHdd:/srv/segateDisk
+      - /media/externalHdd:/srv/segateDisk
       - /home/abraxas:/srv/niflheim
 
       # Both filles need to created and owned by the user specific above or atleast has access to
@@ -21,5 +21,5 @@ services:
     security_opt:
       - no-new-privileges:true
     labels:
-      - 'kopia_backup'
-      - 'com.centurylinklabs.watchtower.enable=true'
+      - "kopia_backup"
+      - "com.centurylinklabs.watchtower.enable=true"

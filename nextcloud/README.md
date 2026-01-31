@@ -19,7 +19,7 @@ The hdd is mounted as a non root user, so that I don't have read-write access to
 ```bash
 > cat /etc/fstab
 [....]
-UUID=xxxx         /media/segateHdd                exfat           defaults,uid=2002,gid=2003,nofail,x-systemd.device-timeout=9  0 0
+UUID=xxxx         /media/externalHdd                exfat           defaults,uid=2002,gid=2003,nofail,x-systemd.device-timeout=9  0 0
 [....]
 ```
 
