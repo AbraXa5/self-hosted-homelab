@@ -2,12 +2,12 @@
 
 Why Kopia? It supports
 
--   Encryption out of the box
--   Decent WebUI
--   Incremental backups
--   Deduplication
--   Compression, which can save quite a bit of space
--   Snapshots taken can be mounted and the files can be inspected
+- Encryption out of the box
+- Decent WebUI
+- Incremental backups
+- Deduplication
+- Compression, which can save quite a bit of space
+- Snapshots taken can be mounted and the files can be inspected
 
 Initially I started with a docker setup, but since for my use-case kopia required root access, it would be simpler to use install it on the host
 Download the binary on the host system using yay, else download a pre built binary from [kopia releases](https://github.com/kopia/kopia/releases)
@@ -57,7 +57,7 @@ Currently going with BackBlaze B2 buckets as the storage type since they have a 
 Navigate to Account -> Application Keys and create a new key
 
 Now, navigate to repositories in the Kopia WebUI and select BackBlaze B2 to setup a new one
-![](images/storage_type.png)
+![backup-options](images/storage_type.png)
 
 Add the necessary details like bucket name, bucket ID, application key and the storage for the repository is set up
 
@@ -73,17 +73,17 @@ List global policy
 
 Add the path to directory to backup, then define necessary policies
 
--   retention policy
--   file ignore list
--   compression algorithm
--   scheduling
--   Pre and post snapshot actions
+- retention policy
+- file ignore list
+- compression algorithm
+- scheduling
+- Pre and post snapshot actions
 
 _file retention_
-![](images/file_retention.png)
+![file_retention](images/file_retention.png)
 
 _scheduling snapshots_
-![](images/schedule_backups.png)
+![schedule_backups](images/schedule_backups.png)
 
 For some reason the pre and post snapshot script config doesn't work with the WebUI, so set that manually via CLI
 
@@ -214,13 +214,13 @@ _ kopia restore kb9a8420bf6b8ea280d6637ad1adbd4c5/sub_directory/to/restore  path
 
 Helpful flags
 
--   `--consistent-attributes` -> restore fails if the snapshot inconsistent attributes
--   `--no-overwrite-files --no-overwrite-directories --no-overwrite-symlinks` -> To prevent overwriting
--   `--log-dir="/root/.cache/kopia`
--   `--log-level=debug`
+- `--consistent-attributes` -> restore fails if the snapshot inconsistent attributes
+- `--no-overwrite-files --no-overwrite-directories --no-overwrite-symlinks` -> To prevent overwriting
+- `--log-dir="/root/.cache/kopia`
+- `--log-level=debug`
 
 ## ToDo
 
--   [ ] Add notifications for snapshot events
--   [ ] Add Images
--   [ ] Add cronjob to start the server automatically
+- [ ] Add notifications for snapshot events
+- [ ] Add Images
+- [ ] Add cronjob to start the server automatically

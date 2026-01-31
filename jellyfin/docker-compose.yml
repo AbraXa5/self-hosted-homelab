@@ -5,20 +5,20 @@ services:
     container_name: jellyfin
     hostname: jellyfin
     environment:
-      - PUID=1000
-      - PGID=1000
+      - PUID=2002
+      - PGID=2003
       - TZ=Asia/Kolkata
       - JELLYFIN_PublishedServerUrl=192.168.1.6
       # - HEALTHCHECK_URL="http://localhost:8096/health"
     volumes:
       - /opt/jellyfin/server:/config
-      - /media/segateHdd/Movies:/data/movies
-      - /media/segateHdd/Series:/data/tvshows/english
-      - /media/segateHdd/Series_Hindi:/data/tvshows/hindi
-      - /media/segateHdd/Pictures:/data/pictures
-      - /media/segateHdd/TwitchStreams:/data/videos/twitch
-      - /media/segateHdd/niflheim/tubearchivist/media:/data/youtube
-      - /opt/jellyfin/additionalMedia:/data/otherVideos
+      - /media/externalHdd/Movies:/data/movies
+      - /media/externalHdd/Series:/data/tvshows
+      - /media/externalHdd/Pictures:/data/pictures
+      # - /media/externalHdd/TwitchStreams:/data/videos/twitch
+      - /media/externalHdd/niflheim/tubearchivist/media:/data/tubearchivist
+      - /media/externalHdd/niflheim/metube/downloads:/data/youtube
+      - /media/externalHdd/niflheim/additionalMedia:/data/otherVideos
     healthcheck:
       test:
         [
@@ -28,7 +28,7 @@ services:
           "-S",
           "--max-time",
           "2",
-          "http://localhost:8096/health"
+          "http://localhost:8096/health",
         ]
       interval: 30s
       timeout: 10s
@@ -39,7 +39,7 @@ services:
       # Optional -> Open for discovery
       - 7359:7359/udp
       - 1900:1900/udp
-    restart: unless-stopped
+    restart: always
     labels:
-      - 'kopia_backup'
-      - 'com.centurylinklabs.watchtower.enable=true'
+      - "kopia_backup"
+      - "com.centurylinklabs.watchtower.enable=true"

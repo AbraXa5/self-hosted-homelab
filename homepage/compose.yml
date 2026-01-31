@@ -1,0 +1,16 @@
+# Had to use specific hash with the image, latest results in a timeout
+# https://github.com/gethomepage/homepage/pkgs/container/homepage
+---
+services:
+  homepage:
+    # image: ghcr.io/gethomepage/homepage:v0.8.4@sha256:4348aecb2372f331393a17ce9595f8de5c878abf9b35482bd0d26e617791a452
+    image: ghcr.io/gethomepage/homepage:latest
+    container_name: homepage
+    ports:
+      - 9900:3000
+    volumes:
+      - /opt/homepage/config:/app/config
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      PUID: 2002
+      PGID: 2003

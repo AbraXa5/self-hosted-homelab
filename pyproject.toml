@@ -1,0 +1,17 @@
+[project]
+    name            = "self-hosted-homelab"
+    version         = "0.1.0"
+    description     = "My self hosting configs"
+    authors         = [{ name = "Abraxas", email = "abr4xa5@proton.me" }]
+    readme          = "README.md"
+    requires-python = ">=3.11"
+
+    dependencies = ["pre-commit (>=4.5.1,<5.0.0)"]
+
+[tool.poetry]
+    package-mode = false
+
+
+[build-system]
+    requires      = ["poetry-core>=2.0.0,<3.0.0"]
+    build-backend = "poetry.core.masonry.api"

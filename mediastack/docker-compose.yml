@@ -30,8 +30,8 @@ services:
       - /opt/jellyseer/config:/app/config
     restart: unless-stopped
     labels:
-      - 'kopia_backup'
-      - 'com.centurylinklabs.watchtower.enable=true'
+      - "kopia_backup"
+      - "com.centurylinklabs.watchtower.enable=true"
 
   radarr:
     image: linuxserver/radarr:latest
@@ -49,12 +49,12 @@ services:
     ports:
       - 7878:7878
     volumes:
-      - '/opt/radarr:/config'
-      - '/media/segateHdd/niflheim/downloads:/data/downloads'
-      - '/media/segateHdd/Movies:/data/movies'
+      - "/opt/radarr:/config"
+      - "/media/externalHdd/niflheim/downloads:/data/downloads"
+      - "/media/externalHdd/Movies:/data/movies"
     labels:
-      - 'kopia_backup'
-      - 'com.centurylinklabs.watchtower.enable=true'
+      - "kopia_backup"
+      - "com.centurylinklabs.watchtower.enable=true"
     restart: unless-stopped
 
   sonarr:
@@ -73,13 +73,13 @@ services:
       - DOCKER_MODS=ghcr.io/gilbn/theme.park:sonarr
       - TP_THEME=nord
     volumes:
-      - '/opt/sonarr:/config'
-      - '/media/segateHdd/niflheim/downloads:/data/downloads'
-      - '/media/segateHdd/Series:/data/tvshows/english'
+      - "/opt/sonarr:/config"
+      - "/media/externalHdd/niflheim/downloads:/data/downloads"
+      - "/media/externalHdd/Series:/data/tvshows/english"
     restart: unless-stopped
     labels:
-      - 'kopia_backup'
-      - 'com.centurylinklabs.watchtower.enable=true'
+      - "kopia_backup"
+      - "com.centurylinklabs.watchtower.enable=true"
 
   jackett:
     image: linuxserver/jackett:latest
@@ -99,11 +99,11 @@ services:
       - DOCKER_MODS=ghcr.io/gilbn/theme.park:jackett
       - TP_THEME=nord
     volumes:
-      - '/opt/jackett:/config'
+      - "/opt/jackett:/config"
     restart: unless-stopped
     labels:
-      - 'kopia_backup'
-      - 'com.centurylinklabs.watchtower.enable=true'
+      - "kopia_backup"
+      - "com.centurylinklabs.watchtower.enable=true"
 
   flaresolverr:
     image: ghcr.io/flaresolverr/flaresolverr:latest
@@ -129,8 +129,8 @@ services:
   #     - TZ=Asia/Kolkata
   #   volumes:
   #     - '/opt/lidarr:/config'
-  #     - '/media/segateHdd/niflheim/downloads:/data/downloads'
-  #     - '/media/segateHdd/Music:/data/music'
+  #     - '/media/externalHdd/niflheim/downloads:/data/downloads'
+  #     - '/media/externalHdd/Music:/data/music'
   #   restart: unless-stopped
   #   labels:
   #     - 'kopia_backup'
@@ -148,13 +148,13 @@ services:
       - DOCKER_MODS=ghcr.io/gilbn/theme.park:bazarr
       - TP_THEME=nord
     volumes:
-      - '/opt/bazarr:/config'
-      - /media/segateHdd/Movies:/data/movies
-      - /media/segateHdd/Series:/data/tv
+      - "/opt/bazarr:/config"
+      - /media/externalHdd/Movies:/data/movies
+      - /media/externalHdd/Series:/data/tv
     restart: unless-stopped
     labels:
-      - 'kopia_backup'
-      - 'com.centurylinklabs.watchtower.enable=true'
+      - "kopia_backup"
+      - "com.centurylinklabs.watchtower.enable=true"
 
   transmission:
     image: linuxserver/transmission:latest
@@ -174,10 +174,10 @@ services:
     volumes:
       - /opt/transmission/config:/config
       # Change defautl download locations in preferences
-      - /media/segateHdd/niflheim/downloads:/data/downloads
-      - /media/segateHdd/niflheim/incomplete:/data/incomplete
+      - /media/externalHdd/niflheim/downloads:/data/downloads
+      - /media/externalHdd/niflheim/incomplete-downloads:/data/incomplete
       - /opt/transmission/watch:/data/watch
     restart: unless-stopped
     labels:
-      - 'kopia_backup'
-      - 'com.centurylinklabs.watchtower.enable=true'
+      - "kopia_backup"
+      - "com.centurylinklabs.watchtower.enable=true"

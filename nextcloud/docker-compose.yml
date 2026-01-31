@@ -15,8 +15,8 @@ services:
       - MYSQL_DATABASE=${MYSQL_DATABASE}
       - MYSQL_USER=${MYSQL_USER}
     labels:
-      - 'kopia_backup'
-      - 'com.centurylinklabs.watchtower.enable=true'
+      - "kopia_backup"
+      - "com.centurylinklabs.watchtower.enable=true"
     restart: unless-stopped
 
   nextcloud:
@@ -32,11 +32,11 @@ services:
     volumes:
       - /opt/nextcloud/config:/config
       - /opt/nextcloud/html:/var/www/html
-      - /media/segateHdd/nextcloud/data:/data
-      - /media/segateHdd/nextcloud/additonalData:/mnt/externalDisk
+      - /media/externalHdd/nextcloud/data:/data
+      - /media/externalHdd/nextcloud/additonalData:/mnt/externalDisk
     ports:
       - 8443:443
     labels:
-      - 'kopia_backup'
-      - 'com.centurylinklabs.watchtower.enable=true'
+      - "kopia_backup"
+      - "com.centurylinklabs.watchtower.enable=true"
     restart: unless-stopped

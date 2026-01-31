@@ -1,0 +1,12 @@
+---
+services:
+  excalidraw:
+    # image: excalidraw/excalidraw:latest
+    image: jauderho/excalidraw:latest
+    container_name: excalidraw
+    hostname: excalidraw
+    ports:
+      - 1331:80
+    restart: always
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"

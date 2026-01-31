@@ -13,4 +13,4 @@ services:
       - TZ=Asia/Kolkata
     volumes:
       - /opt/authelia/config:/config
-    restart: unless-stopped
+    restart: always

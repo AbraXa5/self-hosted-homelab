@@ -17,7 +17,7 @@ services:
       # Using theme from https://theme-park.dev/
       # https://raw.githubusercontent.com/GilbN/theme.park/develop/docker-mods/nginx-proxy-manager/root/etc/cont-init.d/98-themepark
       - /opt/ngnix-proxy-manager/98-themepark:/etc/cont-init.d/99-themepark
-    restart: unless-stopped
+    restart: always
     healthcheck:
       test: [ "CMD", "/bin/check-health" ]
       interval: 10s

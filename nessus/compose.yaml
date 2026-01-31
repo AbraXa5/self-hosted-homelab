@@ -1,0 +1,16 @@
+# https://docs.tenable.com/nessus/Content/DeployNessusDocker.htm
+---
+services:
+  nessus:
+    hostname: nessus
+    container_name: nessus
+    image: tenable/nessus:latest-oracle
+    ports:
+      - 8834:8834
+    env_file:
+      - .env
+    environment:
+      - ACTIVATION_CODE=${ACTIVATION_CODE}
+      - USERNAME=${USERNAME}
+      - PASSWORD=${PASSWORD}
+    restart: unless-stopped
